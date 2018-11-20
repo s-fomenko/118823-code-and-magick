@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Сергей Фоменко](https://up.htmlacademy.ru/javascript/16/user/118823).
-* Наставник: `Неизвестно`.
+* Наставник: [Магомед Кандаев](https://htmlacademy.ru/profile/magomedkandaev).
 
 ---
 
