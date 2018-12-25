@@ -40,7 +40,7 @@ window.renderStatistics = function (ctx, players, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + 100 + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
+    ctx.fillText(players[i], CLOUD_X + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i, CLOUD_HEIGHT - GAP);
     ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + 100 + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
   }
 };
