@@ -33,10 +33,14 @@ window.renderStatistics = function (ctx, players, times) {
 
   ctx.fillStyle = '#000';
 
+  ctx.font = '16px PT Mono';
+  ctx.fillText('Ура вы победили!', CLOUD_X + 20, CLOUD_Y + 30);
+  ctx.fillText('Список результатов:', CLOUD_X + 20, CLOUD_Y + 50);
+
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
-    ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + GAP + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
+    ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + 100 + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
+    ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + 100 + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
   }
 };
