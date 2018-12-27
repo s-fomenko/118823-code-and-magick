@@ -6,7 +6,7 @@ var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 50;
 var FONT_GAP = 15;
-var TEXT_HEIGHT = 15;
+var TEXT_HEIGHT = 20;
 var barHeight = (CLOUD_HEIGHT - FONT_GAP - (TEXT_HEIGHT * 2) - 50);
 var BAR_WIDTH = 40;
 
@@ -39,8 +39,22 @@ window.renderStatistics = function (ctx, players, times) {
 
   var maxTime = getMaxElement(times);
 
+  var getRandomNumber = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  var color = 'rgba(25, 181, 254, ' + ('0.' + getRandomNumber(1, 9)) + ')';
+
   for (var i = 0; i < players.length; i++) {
+    ctx.fillStyle = '#000';
     ctx.fillText(players[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP);
+
+    if (players[i] === 'Вы') {
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    } else {
+      ctx.fillStyle = color;
+    }
+
     ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP - TEXT_HEIGHT, BAR_WIDTH, -(barHeight * times[i]) / maxTime);
   }
 };
