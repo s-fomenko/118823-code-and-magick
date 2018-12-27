@@ -5,9 +5,9 @@ var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 50;
-var FONT_GAP = 15;
+var FONT_GAP = 10;
 var TEXT_HEIGHT = 20;
-var barHeight = (CLOUD_HEIGHT - FONT_GAP - (TEXT_HEIGHT * 3) - 50);
+var barHeight = (CLOUD_HEIGHT - FONT_GAP - (TEXT_HEIGHT * 3) - GAP);
 var BAR_WIDTH = 40;
 
 var renderCloud = function (ctx, x, y, color) {
@@ -34,8 +34,8 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillStyle = '#000';
 
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', CLOUD_X + 20, CLOUD_Y + 30);
-  ctx.fillText('Список результатов:', CLOUD_X + 20, CLOUD_Y + 50);
+  ctx.fillText('Ура вы победили!', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + TEXT_HEIGHT);
+  ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + (TEXT_HEIGHT * 2));
 
   var maxTime = getMaxElement(times);
 
