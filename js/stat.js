@@ -19,11 +19,15 @@ window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + 10, CLOUD_Y + 10, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
-  ctx.fillStyle = '#000';
+  var title = function () {
+    ctx.fillStyle = '#000';
 
-  ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + TEXT_HEIGHT);
-  ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + (TEXT_HEIGHT * 2));
+    ctx.font = '16px PT Mono';
+    ctx.fillText('Ура вы победили!', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + TEXT_HEIGHT);
+    ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + (TEXT_HEIGHT * 2));
+  };
+
+  title();
 
   var maxTime = times.reduce(function (maxElement, item) {
     if (item > maxElement) {
