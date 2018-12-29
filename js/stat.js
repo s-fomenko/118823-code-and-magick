@@ -27,8 +27,6 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + (TEXT_HEIGHT * 2));
   };
 
-  renderText();
-
   var maxTime = times.reduce(function (maxElement, item) {
     if (item > maxElement) {
       maxElement = item;
@@ -50,8 +48,6 @@ window.renderStatistics = function (ctx, players, times) {
     });
   };
 
-  renderNames();
-
   var renderBar = function () {
     times.forEach(function (item, i) {
       var positionX = CLOUD_X + GAP + (GAP + BAR_WIDTH) * i;
@@ -64,5 +60,7 @@ window.renderStatistics = function (ctx, players, times) {
     });
   };
 
+  renderText();
+  renderNames();
   renderBar();
 };
