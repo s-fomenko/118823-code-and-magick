@@ -42,8 +42,11 @@ window.renderStatistics = function (ctx, players, times) {
 
   var renderNames = function () {
     players.forEach(function (item, i) {
+      var positionX = CLOUD_X + GAP + (GAP + BAR_WIDTH) * i;
+      var positionY = CLOUD_Y + CLOUD_HEIGHT - FONT_GAP;
+
       ctx.fillStyle = '#000';
-      ctx.fillText(item, CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP);
+      ctx.fillText(item, positionX, positionY);
     });
   };
 
@@ -51,10 +54,13 @@ window.renderStatistics = function (ctx, players, times) {
 
   var renderBar = function () {
     times.forEach(function (item, i) {
+      var positionX = CLOUD_X + GAP + (GAP + BAR_WIDTH) * i;
+      var positionY = CLOUD_Y + CLOUD_HEIGHT - FONT_GAP;
+
       ctx.fillStyle = '#000';
-      ctx.fillText(Math.round(item), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - (FONT_GAP * 2) - TEXT_HEIGHT - (barHeight * item) / maxTime);
+      ctx.fillText(Math.round(item), positionX, CLOUD_Y + CLOUD_HEIGHT - (FONT_GAP * 2) - TEXT_HEIGHT - (barHeight * item) / maxTime);
       ctx.fillStyle = (players[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(25, 181, 254, ' + ('0.' + getRandomNumber(1, 9)) + ')';
-      ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - FONT_GAP - TEXT_HEIGHT, BAR_WIDTH, -(barHeight * item) / maxTime);
+      ctx.fillRect(positionX, positionY - TEXT_HEIGHT, BAR_WIDTH, -(barHeight * item) / maxTime);
     });
   };
 
