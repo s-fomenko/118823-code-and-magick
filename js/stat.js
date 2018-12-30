@@ -27,12 +27,19 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP + (TEXT_HEIGHT * 2));
   };
 
-  var maxTime = times.reduce(function (maxElement, item) {
-    if (item > maxElement) {
-      maxElement = item;
-    }
+  var getMaxElement = function (arr) {
+    var maxElement = arr[0];
+
+    arr.reduce(function (acc, item) {
+      if (item > acc) {
+        maxElement = item;
+      }
+    });
+
     return maxElement;
-  });
+  };
+
+  var maxTime = getMaxElement(times);
 
   var getRandomNumber = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
