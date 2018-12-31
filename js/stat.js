@@ -47,7 +47,7 @@ var renderBar = function (ctx, arr, arr2) {
     var positionY = CLOUD_Y + CLOUD_HEIGHT - FONT_GAP;
 
     ctx.fillStyle = '#000';
-    ctx.fillText(arr2[i], positionX, positionY)
+    ctx.fillText(arr2[i], positionX, positionY);
     ctx.fillText(Math.round(item), positionX, CLOUD_Y + CLOUD_HEIGHT - (FONT_GAP * 2) - TEXT_HEIGHT - (barHeight * item) / maxTime);
     ctx.fillStyle = (arr2[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(25, 181, 254, ' + ('0.' + getRandomNumber(1, 9)) + ')';
     ctx.fillRect(positionX, positionY - TEXT_HEIGHT, BAR_WIDTH, -(barHeight * item) / maxTime);
