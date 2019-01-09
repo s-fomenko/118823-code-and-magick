@@ -1,7 +1,12 @@
 'use strict';
 
-var setup = document.querySelector('.setup');
-setup.classList.remove('hidden');
+var showHiddenBlocks = function () {
+  var setup = document.querySelector('.setup');
+  // var setupSimilar = document.querySelector('.setup-similar');
+
+  setup.classList.remove('hidden');
+  // setupSimilar.classList.remove('hidden');
+};
 
 var createMockData = function () {
   var mockData = [];
@@ -56,5 +61,7 @@ var createMockData = function () {
   }
   return mockData;
 };
+
+showHiddenBlocks();
 
 console.log(createMockData());
