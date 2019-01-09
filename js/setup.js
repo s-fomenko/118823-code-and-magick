@@ -2,10 +2,10 @@
 
 var showHiddenBlocks = function () {
   var setup = document.querySelector('.setup');
-  // var setupSimilar = document.querySelector('.setup-similar');
+  var setupSimilar = document.querySelector('.setup-similar');
 
   setup.classList.remove('hidden');
-  // setupSimilar.classList.remove('hidden');
+  setupSimilar.classList.remove('hidden');
 };
 
 var createMockData = function () {
@@ -62,6 +62,34 @@ var createMockData = function () {
   return mockData;
 };
 
+var createWizardItem = function (data) {
+  var wizardItem = document.querySelector('#similar-wizard-template')
+    .content
+    .querySelector('.setup-similar-item');
+
+  var item = wizardItem.cloneNode(true);
+
+  item.querySelector('.setup-similar-label').textContent = data.name;
+  item.querySelector('.wizard-coat').style.fill = data.coatColor;
+  item.querySelector('.wizard-eyes').style.fill = data.eyesColor;
+
+  return item;
+};
+
+var createWizardItems = function (data) {
+  var fragment = document.createDocumentFragment();
+  var wizardList = document.querySelector('.setup-similar-list');
+
+  data.forEach(function (item) {
+    fragment.appendChild(createWizardItem(item));
+  });
+
+  wizardList.appendChild(fragment);
+};
+
+var mockData = createMockData();
+
+createWizardItems(mockData);
+
 showHiddenBlocks();
 
-console.log(createMockData());
